@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title>KyivMap</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;700&family=Geologica:wght@300;400;500&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body data-theme="dark">
+
+    <header>
+        <div class="logo">
+            <div class="logo-dot"></div>
+            <span>Kyiv<span style="color:var(--accent)">Map</span></span>
+        </div>
+
+        <div class="h-search-wrap">
+            <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                <circle cx="11" cy="11" r="8" />
+                <line x1="21" y1="21" x2="16.65" y2="16.65" />
+            </svg>
+            <input class="h-search" id="search" type="text" placeholder="Пошук по назві…">
+        </div>
+
+        <div class="h-right">
+            <span class="badge" id="badge">Оберіть категорію</span>
+            <button class="icon-btn" id="themeBtn" title="Змінити тему">🌙</button>
+            <button class="icon-btn sb-toggle" id="sbToggle">☰</button>
+        </div>
+    </header>
+
+    <div class="main">
+        <div id="sb-overlay"></div>
+
+        <aside id="sidebar">
+            <div class="sb-head">
+                <div class="sb-label">Категорії</div>
+            </div>
+            <div class="cat-list" id="catList"></div>
+        </aside>
+
+        <div id="map-wrap">
+            <div id="map"></div>
+
+            <div id="loader" class="hidden">
+                <div class="spinner"></div>
+                <div class="loader-text" id="loaderText">Завантаження…</div>
+                <div class="loader-sub" id="loaderSub">Запит до OpenStreetMap</div>
+            </div>
+
+            <div class="empty" id="empty">
+                <div class="ei">📭</div>
+                <div class="et">Нічого не знайдено</div>
+            </div>
+        </div>
+    </div>
+
+    <div id="toast"></div>
+
+</body>
+
+</html>
